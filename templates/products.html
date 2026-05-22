@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+
+    <style>
+
+        body{
+            font-family:Arial;
+            background:#f5f5f5;
+            margin:0;
+        }
+
+        .container{
+            padding:10px;
+        }
+
+        .top{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .btn{
+            background:#14532d;
+            color:white;
+            padding:10px 20px;
+            text-decoration:none;
+            border-radius:5px;
+        }
+
+        .products{
+            margin-top:20px;
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:14px;
+        }
+
+        .card{
+            background:white;
+            border-radius:14px;
+            overflow:hidden;
+			box-shadow:0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .card img{
+           width:100%;
+           height:160px;
+           object-fit:cover;
+           object-position:center;
+           transition:0.4s ease;
+        }
+
+        .card:hover img{
+           transform:scale(1.08);
+        }
+
+        .content{
+            padding:15px;
+        }
+		
+		/* PRODUCT NAME */
+
+        .card-content h2{
+		 margin:0 0 2px 0;
+
+         line-height:1.1;
+
+         font-size:14px;
+
+         margin-bottom:4px;
+        }
+
+        /* PRICE */
+
+        .card-content p{
+
+           margin-bottom:8px;
+
+           font-size:12px;
+		   
+		   margin:0 0 5px 0;
+
+           line-height:1.1;      
+        }
+
+        .actions{
+            margin-top:15px;
+        }
+
+        .delete{
+            background:red;
+            color:white;
+            padding:8px 15px;
+            text-decoration:none;
+            border-radius:5px;
+        }
+
+        .edit{
+            background:green;
+            color:white;
+            padding:8px 15px;
+            text-decoration:none;
+            border-radius:5px;
+        }
+		
+		.order-btn{
+
+    display:inline-block;
+
+    margin-top:14px;
+
+    padding:10px 18px;
+
+    background:#25D366;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    transition:0.3s;
+}
+
+.order-btn:hover{
+
+    background:#1ebe5d;
+
+    transform:translateY(-2px);
+}
+body.product-page{
+    font-family:Arial;
+    margin:0;
+
+    background-image:url("{{ url_for('static', filename='images/leaf-bg.jpg') }}");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+}
+
+.card-content{
+
+    padding:12px 14px !important;
+
+}
+
+@media(max-width:768px){
+
+}
+
+
+		
+
+    </style>
+
+</head>
+
+<body class="product-page">
+
+    <div class="container">
+
+        <div class="top">
+
+            <h1>All Products</h1>
+			
+			<!-- DELIVERY MESSAGE -->
+		<div class="multi-order">
+
+    <a href="https://wa.me/2348035677186?text=Hello%20Shyfa%20Natural%20Health,%20I%20want%20to%20order%20multiple%20items.%20The%20products%20I%20selected%20are:"
+    class="multi-order-btn"
+    target="_blank">
+
+        Order Multiple Products
+
+    </a>
+
+</div>	
+
+<div class="footer-delivery">
+
+    <h3>
+        Delivery Services
+    </h3>
+
+    <p>
+        🌍 Worldwide delivery available across
+        Nigeria, UK, USA, Canada & more.
+    </p>
+
+    <p>
+        We deliver 100% trusted natural health products
+        safely across Nigeria and internationally.
+    </p>
+
+</div>
+
+            
+
+        </div>
+		
+    <section class="products">
+
+    {% for product in products %}
+
+    <div class="card">
+
+        <img src="{{ url_for(
+            'static',
+            filename='images/' + product['image']
+        ) }}">
+
+        <div class="card-content">
+
+            <h2>
+                {{ product['name'] }}
+            </h2>
+
+            <h3>
+                ₦{{ product['price'] }}
+            </h3>
+
+            <p>
+                {{ product['description'] }}
+            </p>
+			
+			<!-- PRODUCT REVIEW -->
+
+<div class="product-review">
+
+    <span style="color:#facc15; font-size:18px;">
+    ★★★★★
+</span>
+
+    {% if product['name'] == 'Shyfa Bitters' %}
+
+        <p class="review-text">
+            “Shyfa bitters na baba.”
+        </p>
+
+    {% elif product['name'] == 'Black Seed Oil' %}
+
+        <p class="review-text">
+            “Very effective and original product.”
+        </p>
+
+    {% elif product['name'] == 'Herbal Tea' %}
+
+        <p class="review-text">
+            “Fast delivery and great quality.”
+        </p>
+
+    {% else %}
+
+        <p class="review-text">
+            “Trusted and effective product.”
+        </p>
+
+    {% endif %}
+
+</div>
+			
+			
+			
+			
+            <a href="https://wa.me/2348035677186?text=Hello%20Shyfa%20Natural%20Health,%20I%20want%20to%20order:%0A%0AProduct:%20{{ product['name'] }}%0APrice:%20₦{{ product['price'] }}"
+            class="order-btn"
+            target="_blank">
+
+                Order Now
+
+            </a>
+			
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</section> 
+
+  
+
+</body>
+</html>

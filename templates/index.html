@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shyfa Natural Health</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=3">
+<link rel="stylesheet"
+href="{{ url_for('static',
+filename='css/style.css') }}">
+
+
+</head>
+
+<body>
+
+<!-- TOP LOGO -->
+<div class="site-logo">
+    SHYFA
+</div>
+
+<nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/services">Services</a>
+    </nav>
+
+<section class="hero">
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+	
+	<h2 class="hero-health">
+            NATURAL HEALTH
+    </h2>
+		
+    <h3 class="hero-subtitle">
+		     Products & Services
+	</h3>
+
+    <p>
+            Safe. NAFDAC-Approved.
+            Traditional Wellness Products.
+    </p>
+
+        <div class="hero-buttons">
+
+            <a href="/products"
+            class="btn primary-btn">
+                View Products
+            </a>
+
+            <a href="/contact"
+            class="btn secondary-btn">
+                Contact Us
+            </a>
+			
+		
+
+        </div>
+		<!-- ADD THIS -->
+		<div class="credentials-badge">
+    <span class="tick">✔</span>
+    <span class="text">
+        Verified Licensed Practitioner • Lagos State Traditional Medicine Board • NTMP • Elewe Omo Herbal Practitioners
+    </span>
+</div>
+
+
+   </div>
+
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CUSTOMER REVIEWS SECTION -->
+<section style="
+padding: 10px 8%;
+margin: 0;
+background-image:url('{{ url_for('static', filename='images/leaf-bg.jpg') }}');
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+">
+    <h2 style="text-align:center; font-size:20px; margin-bottom:10px;">
+        ⭐ Customer Reviews
+    </h2>
+
+    <p style="text-align:center; color:#666; margin-bottom:12px;">
+        What our customers say about Alhaja Shyfa Herbal Products
+    </p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+        <!-- Review 1 -->
+        <div style="
+gap:10px;
+align-items:flex-start;
+width:200px;
+background:#f9f9f9;
+padding:8px;
+border-radius:10px;
+box-shadow:0 2px 8px rgba(0,0,0,0.08);
+font-size:11px;
+line-height:1.8;
+">
+        <div style="margin-bottom:6px;">
+             ⭐⭐⭐⭐⭐
+        </div>  
+            
+		<p>"Good day ma🙌🙌 thank you for introducing shyfa bitters ttc mum package 🙏🙏 this made me a mother of a bouncing baby boy🥰🥰🥰."</p>
+            <strong>Adebisi K., Shomolu</strong>
+        </div>
+
+        <!-- Review 2 -->
+        <div style="
+gap:10px;
+align-items:flex-start;
+width:200px;
+background:#f9f9f9;
+padding:8px;
+border-radius:10px;
+box-shadow:0 2px 8px rgba(0,0,0,0.08);
+font-size:11px;
+line-height:1.8;
+">
+        <div style="margin-bottom:6px;">
+             ⭐⭐⭐⭐⭐
+        </div> 
+            <p>"Good morning Ma the CEO shyfa Natural Health products and services thank you so much ma l use your ttc mom herbs and now l’m tested positive thank you God bless you for the past 12 year l’ll be waiting now l’ve tested positive to born thank you so much 
+             🙏🙏."</p>
+            <strong>Fatima S., ikeja</strong>
+        </div>
+
+        <!-- Review 3 -->
+        <div style="
+gap:10px;
+align-items:flex-start;
+width:200px;
+background:#f9f9f9;
+padding:8px;
+border-radius:10px;
+box-shadow:0 2px 8px rgba(0,0,0,0.08);
+font-size:11px;
+line-height:1.8;
+">
+        <div style="margin-bottom:6px;">
+             ⭐⭐⭐⭐⭐
+        </div> 
+            <p>"Salam alaykum
+              Thanks so much for the shyfa bitter l used it for irregular mestration and it real work for me. My monthly flow is now regular, clean and painless."</p>
+            <strong>Mrs Adebayo, Ogun state</strong>
+        </div>
+
+        <!-- Review 4 -->
+                <div style="
+gap:10px;
+align-items:flex-start;
+width:200px;
+background:#f9f9f9;
+padding:8px;
+border-radius:10px;
+box-shadow:0 2px 8px rgba(0,0,0,0.08);
+font-size:11px;
+line-height:1.8;
+">
+        <div style="margin-bottom:6px;">
+             ⭐⭐⭐⭐⭐
+        </div> 
+        
+            <p>"Let me quickly say something that the people are not aware of it but l have used it, a good product shyfa bitter, it good for pile and infection, no matter how the infection have been on your body shyfa bitter will cure it, l’m a living testimony"</p>
+            <strong>Mr Chucks, Festac</strong>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- WHATSAPP FLOATING BUTTON -->
+
+    <a href="https://wa.me/2348035677186?text=Hello%20Shyfa%20Natural%20Health,%20I%20want%20to%20make%20an%20enquiry."
+    class="whatsapp-float"
+    target="_blank">
+
+    <span class="whatsapp-icon">💬</span>
+
+    <span class="whatsapp-text">
+        Consultation
+    </span>
+
+  </a>
+  
+  <!-- FOOTER -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- BRAND -->
+
+        <div class="footer-brand">
+
+            <h2>
+                Shyfa Natural Health
+            </h2>
+
+            <p>
+                Trusted traditional wellness products and
+                natural healthcare services.
+            </p>
+
+        </div>
+
+        <!-- LINKS -->
+
+        <div class="footer-links">
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="/">Home</a>
+            <a href="/products">Products</a>
+            <a href="/about">About</a>
+            <a href="/services">Services</a>
+            <a href="/contact">Contact</a>
+
+        </div>
+		<!-- DELIVERY STRIP -->
+
+
+        <!-- CONTACT -->
+		<!-- DELIVERY MESSAGE -->
+
+        <div class="footer-delivery">
+
+         <h3>
+        Delivery Services
+         </h3>
+
+        <p>
+        🌍 Worldwide delivery available across
+        Nigeria, UK, USA, Canada & more.
+         </p>
+
+        <p>
+        We deliver trusted natural health products
+        safely across Nigeria and internationally.
+        </p>
+
+    </div>
+
+        <div class="footer-contact">
+
+            <h3>
+                Contact
+            </h3>
+
+            <p>
+                📍 Lagos, Nigeria
+            </p>
+
+            <p>
+                📞 +234 8035677186
+            </p>
+
+            <p>
+                ✉ Shyfaohealth@gmail.com
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- BOTTOM -->
+
+    <div class="footer-bottom">
+
+        © 2026 Shyfa Natural Health.
+        All Rights Reserved.
+
+    </div>
+
+</footer>
+
+</body>
+</html>
+
