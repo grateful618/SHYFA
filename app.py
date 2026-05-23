@@ -16,7 +16,9 @@ class User(UserMixin):
     id = 1
 
 ADMIN_USERNAME = "shyfa_admin"
-ADMIN_PASSWORD = "Lord123.com!"
+ADMIN_PASSWORD = "StrongPassword123!"
+
+print(username, password)
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -98,13 +100,15 @@ def home():
 @app.route("/admin/login", methods=["GET", "POST"])
 def admin_login():
     if request.method == "POST":
-        username = request.form["username"]
-        password = request.form["password"]
+        username = request.form.get("username")
+        password = request.form.get("password")
 
         if username == ADMIN_USERNAME and password == ADMIN_PASSWORD:
             user = User()
             login_user(user)
             return redirect("/admin")
+
+        return "Wrong username or password"
 
     return render_template("login.html")
     
