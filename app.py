@@ -6,6 +6,8 @@ from flask import session, redirect, request
 
 app = Flask(__name__)
 
+app.secret_key = "shyfa_secret_key_2026"
+
 
 login_manager = LoginManager()
 login_manager.init_app(app)
