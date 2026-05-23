@@ -1,7 +1,24 @@
 from flask import Flask, render_template, request, redirect
 import sqlite3
 
+from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+from flask import session, redirect, request
+
 app = Flask(__name__)
+
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = "admin_login"
+
+
+class User(UserMixin):
+    id = 1
+
+ADMIN_USERNAME = "shyfa_admin"
+ADMIN_PASSWORD = "Lord123.com!"
+
+
 
 DATABASE = 'store.db'
 
@@ -73,6 +90,32 @@ def home():
 # =========================
 # ADMIN DASHBOARD
 # =========================
+
+@app.route("/admin/login", methods=["GET", "POST"])
+def admin_login():
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+
+        if username == ADMIN_USERNAME and password == ADMIN_PASSWORD:
+            user = User()
+            login_user(user)
+            return redirect("/admin")
+
+    return render_template("login.html")
+    
+@app.route("/admin")
+@login_required
+def admin_dashboard():
+    return render_template("admin.html")    
+    
+@app.route("/admin/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect("/admin/login")    
+    
+    
 
 @app.route('/admin')
 def admin():
