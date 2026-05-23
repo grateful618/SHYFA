@@ -18,7 +18,7 @@ class User(UserMixin):
 ADMIN_USERNAME = "shyfa_admin"
 ADMIN_PASSWORD = "StrongPassword123!"
 
-print(username, password)
+
 
 @login_manager.user_loader
 def load_user(user_id):
