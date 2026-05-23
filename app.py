@@ -117,7 +117,11 @@ def admin_login():
 @app.route("/admin")
 @login_required
 def admin_dashboard():
-    return render_template("admin.html")    
+    conn = get_db_connection()
+    products = conn.execute('SELECT * FROM products').fetchall()
+    conn.close()
+
+    return render_template("admin.html", products=products)    
     
 @app.route("/admin/logout")
 @login_required
@@ -125,23 +129,6 @@ def logout():
     logout_user()
     return redirect("/admin/login")    
     
-    
-
-@app.route('/admin')
-def admin():
-
-    conn = get_db_connection()
-
-    products = conn.execute(
-        'SELECT * FROM products'
-    ).fetchall()
-
-    conn.close()
-
-    return render_template(
-        'admin.html',
-        products=products
-    )    
     
 
 
@@ -198,6 +185,7 @@ def contact():
 # =========================
 
 @app.route('/add-product', methods=['GET', 'POST'])
+@login_required
 def add_product():
 
     if request.method == 'POST':
@@ -227,6 +215,7 @@ def add_product():
 # =========================
 
 @app.route('/delete-product/<int:id>')
+@login_required
 def delete_product(id):
 
     conn = get_db_connection()
@@ -247,6 +236,7 @@ def delete_product(id):
 # =========================
 
 @app.route('/edit-product/<int:id>', methods=['GET', 'POST'])
+@login_required
 def edit_product(id):
 
     conn = get_db_connection()
