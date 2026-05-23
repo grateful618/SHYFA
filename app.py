@@ -18,6 +18,10 @@ class User(UserMixin):
 ADMIN_USERNAME = "shyfa_admin"
 ADMIN_PASSWORD = "Lord123.com!"
 
+@login_manager.user_loader
+def load_user(user_id):
+    return User()
+
 
 
 DATABASE = 'store.db'
